@@ -25,28 +25,11 @@ app.listen(8081, function () {
     console.log('Example app listening on port 8081!')
 })
 
-/*app.post("/text", postText);
 
-async function postText (req, res) {
-    const input = req.body.input;
-    return text = input;
-}*/
-
-app.get('/test', function (req, res) {
+/*app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
-})
+})*/
 
-/*app.get("/data", updateUI);
-
-async function updateUI (req, res) {
-    // API url
-    const response = await fetch (`https://api.meaningcloud.com/sentiment-2.1?key=${textapi}&lang=en&txt=plain&url=${text}&model=general`)
-        if (response.status != 200) {
-            window.alert("MeaningCLoud isn't responding!");
-        }
-    const data = await response.json(); 
-    res.send(data); 
-}*/
 
 app.post('/analyze', function(req, res){
     const API_KEY = process.env.API_KEY;//b93ed6bf4022aa7a73a5cba3f156db96
@@ -72,6 +55,7 @@ app.post('/analyze', function(req, res){
             agreement: data.agreement,
             subjectivity: data.subjectivity,
             confidence: data.confidence,
+            irony: data.irony,
         })
 
     })
