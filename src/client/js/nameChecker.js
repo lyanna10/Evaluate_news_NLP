@@ -1,6 +1,16 @@
 function checkForName(inputText) {
     console.log("::: Running checkForName :::", inputText);
-    let names = [
+    
+    {
+        let regex = inputText.match(/(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g);
+        if(regex == null){
+             return false;
+         } else{
+         return true;
+         }
+    }
+
+    /*let names = [
         "Picard",
         "Janeway",
         "Kirk",
@@ -10,7 +20,7 @@ function checkForName(inputText) {
 
     if(names.includes(inputText)) {
         alert("Welcome, Captain!")
-    }
+    }*/
 }
 
 export { checkForName }
