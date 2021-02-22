@@ -3,4 +3,4 @@ describe("Test functionality", () => {
     test("handleSubmit() function", () => {
         expect(handleSubmit).toBeDefined();
     })
-})
+});

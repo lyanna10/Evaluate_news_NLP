@@ -1,4 +1,4 @@
-//import { Body } from "node-fetch"
+import { Body } from "node-fetch"
   /* Function to POST data */
   const postData = async (url = "", data = {}) => {
     console.log("postData Function running", data);
@@ -34,18 +34,18 @@ function handleSubmit(event) {
 
       postData('http://localhost:8081/meaningCloud', {url: formText})
       .then(function(res) {
-          document.getElementById('core_tag').innerHTML = `core_tag: ${newData.core_tag}`;
-          document.getElementById("agreement").innerHTML = `Agreement: ${res.agreement}`;
-          document.getElementById("subjectivity").innerHTML = `Subjectivity: ${res.subjectivity}`;
-          document.getElementById("confidence").innerHTML = `Confidence: ${res.confidence}`;
-          document.getElementById("irony").innerHTML = `Irony: ${res.irony}`;
+          document.getElementById('score_tag').innerHTML = `Score_tag: ${res.score_tag}`;
+          document.getElementById('agreement').innerHTML = `Agreement: ${res.agreement}`;
+          document.getElementById('subjectivity').innerHTML = `Subjectivity: ${res.subjectivity}`;
+          document.getElementById('confidence').innerHTML = `Confidence: ${res.confidence}`;
+          document.getElementById('irony').innerHTML = `Irony: ${res.irony}`;
       })
     } else {
       alert("Invalid URL: Re-enter a valid URL.");
     }
 }
 
-export { handleSubmit}
+export { handleSubmit, postData}
 
 
 /*function handleSubmit(event) {

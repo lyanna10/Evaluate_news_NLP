@@ -30,7 +30,7 @@ app.get('/test', function (req, res) {
 
 
 // designates what port the app will listen to for incoming requests
-app.listen(8081, function () {
+app.listen(8081, function () { //8081
     console.log('Example app listening on port 8081!')
 })
 
@@ -43,7 +43,7 @@ app.post('/meaningCloud', function(req, res){
     const urlToFetch = baseUrl + para;
 
     fetch(urlToFetch, {
-        method: "POST",
+        method: "GET",
         credentials: 'same-origin',
         mode: 'cors',
         headers: {
@@ -69,7 +69,7 @@ app.post('/meaningCloud', function(req, res){
 //post request
 /*app.post("/analyze", async (req, res) => {
     const textUrl = req.body.textUrl
-    const response = await fetch(baseUrl + `?key=${API_KEY}&lang=en$model=general$url=${textUrl}`)
+    const response = await fetch(`?key=${API_KEY}&lang=en$model=general$url=${textUrl}`)
     const data = await response.json
         res.send(data)
     //console.log('api', para)
