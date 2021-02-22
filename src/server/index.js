@@ -3,9 +3,6 @@ dotenv.config();
 const path = require('path');
 const fetch = require('node-fetch')
 const mockAPIResponse = require('./mockAPI.js');
-//const baseUrl = "https://api.meaningcloud.com/sentiment-2.1"
-//const API_KEY = process.env.API_KEY;
-//const textUrl = req.body.textUrl;
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
@@ -42,14 +39,15 @@ app.post('/meaningCloud', function(req, res){
     const para = `?key=${API_KEY}&url=${req.body.textUrl}&lang=en`;
     const urlToFetch = baseUrl + para;
 
-    fetch(urlToFetch, {
+    /*fetch(urlToFetch, {
         method: "GET",
         credentials: 'same-origin',
         mode: 'cors',
         headers: {
             "Content-Type": "application/JSON",
         }
-    })
+    })*/
+    fetch(urlToFetch)
     .then((response) => {
         return response.json
     })
@@ -66,20 +64,3 @@ app.post('/meaningCloud', function(req, res){
     })
 })
 
-//post request
-/*app.post("/analyze", async (req, res) => {
-    const textUrl = req.body.textUrl
-    const response = await fetch(`?key=${API_KEY}&lang=en$model=general$url=${textUrl}`)
-    const data = await response.json
-        res.send(data)
-    //console.log('api', para)
-    //const response = await fetch(para)
-
-    try {
-        const data = await response.json
-        res.send(data)
-    }
-    catch (error){
-        console.log("error",error)
-    }
-})*/

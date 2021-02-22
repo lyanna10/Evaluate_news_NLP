@@ -32,7 +32,7 @@ function handleSubmit(event) {
     
       //post url
 
-      postData('http://localhost:8081/meaningCloud', {url: formText})
+      postData('http://localhost:8081/meaningCloud', {textUrl: formText})
       .then(function(res) {
           document.getElementById('score_tag').innerHTML = `Score_tag: ${res.score_tag}`;
           document.getElementById('agreement').innerHTML = `Agreement: ${res.agreement}`;
@@ -48,64 +48,7 @@ function handleSubmit(event) {
 export { handleSubmit, postData}
 
 
-/*function handleSubmit(event) {
-    event.preventDefault()
 
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value
-    Client.checkForName(formText)
-
-    console.log("::: Form Submitted :::")
-    postData('http://localhost:8081/', {name: formText})
-}
-
-const postData = async(url = "", data = {}) => {
-    const response = await fetch(url, {
-        method: 'POST',
-        credentials: 'same-origin',
-        mode: 'cors',
-        headers: {
-            'Content-type': "application/JSON",
-        },
-        //body: url,
-        body: JSON.stringify(data)
-           // textUrl: formText
-       // })
-    })
-    .then(res => res.json())
-    .then(newData => updateUI(newData))
-    .catch((error) => {
-      console.log('error', error);
-    })
-}
-
-function updateUI(newData) {
-    console.log(newData.status.msg)
-    document.getElementById('Confidence').innerHTML = `Confidence: ${newData.confidence}`;
-    document.getElementById('Subjectivity').innerHTML = `Subjectivity: ${newData.subjectivity}`;
-    document.getElementById('Irony').innerHTML = `Irony: ${newData.irony}`;
-    document.getElementById('agreement').innerHTML = `agreement: ${newData.agreement}`;
-    document.getElementById('core_tag').innerHTML = `core_tag: ${newData.core_tag}`;
-  }*/
-
-  /* fetch('http://localhost:8081/analyze', {
-        method: "POST",
-        credentials: 'same-origin',
-        mode: 'cors',
-        headers: {
-            "Content-Type": "application/JSON",
-        },
-        body: JSON.stringify({
-            textUrl: formText
-        })
-    })
-    .then(res => res.json())
-    .then(function(res) {
-        console.log("response")
-        document.getElementById('results').innerHTML = res.message
-    })*/
-
-//export { handleSubmit }
 
 
 
