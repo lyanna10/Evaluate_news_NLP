@@ -49,7 +49,7 @@ app.post('/meaningCloud', function(req, res){
     })*/
     fetch(urlToFetch)
     .then((response) => {
-        return response.json
+        return response.json();
     })
     .then((data) => {
         console.log("meaningcloud")
